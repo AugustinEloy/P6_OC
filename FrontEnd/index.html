@@ -9,6 +9,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	
+
 </head>
 <body>
 <header>
@@ -17,7 +20,9 @@
 		<ul>
 			<li>projets</li>
 			<li>contact</li>
+			<a href="login.html">
 			<li>login</li>
+			</a>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -35,52 +40,78 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div class="header-container">
+			<h2>Mes Projets</h2>
+			<!-- Trigger/Open The Modal -->
+			<button id="modalb">modifier</button>
+		</div>
+
+		<div id="modala" class="modal1">
+		
+		  <form action="">
+			<div class="modal-c">
+			  <div class="modal-h">
+				<span class="close">&times;</span>
+				<h2>Galerie Photo</h2>
+			  </div>
+			  <div class="modal-center">
+
+			  </div>
+			  <div class="modal-f">
+				<h3>Modal Footer</h3>
+			  </div>
+				<input type="button" value="ajouter une photo" id="submitdel" > 
+			</div>
+		  </form>
+		</div>
+		<div id="mymodal" class=" modal">
+		  <form id="addphoto" method="post" enctype="multipart/form-data">
+				<div class="modal-content">
+		
+					<div class="modal-header">
+						<span class="close2">&times;</span>
+						<h2>Ajout photo</h2>
+					</div>
+		
+					<div id="adimg">
+						<input type="file" id="imageInput" class="inputimage" style="display: none;" name="image">
+						<label id="uploadBtn" for="uploadBtn" class="upload-label" > + Ajout photo </label>
+					</div>
+		
+					<div class="modal-body">
+						<label for="title"> Titre</label>
+						<input type="text" name="title" id="modal-titre" class="titleimput" >
+					</div>
+		
+					<div class="modal-footer">
+						<label for="select"> Catégorie</label>
+						<select class="form-select form-select-lg mb-3  cateselect" aria-label=".form-select-lg " id="input_select">
+							<option selected>categorie</option>
+							<option value="1">Objet</option>
+							<option value="2">Appartements</option>
+							<option value="3">Hotels & restaurants</option>
+						</select>
+					</div>
+		
+					<button type="submit"  id="submitadd">Valider</button>
+		
+				</div>
+			</form>
+		
+		</div>
+		
+
+
+
+
+		<article id="filtres">
+			<button id="tous">Tous</button>
+			<button id="objet">Objet</button>
+			<button id="appartements">Appartements</button>
+			<button id="her">Hotels & réstaurants</button>
+		</article>
 		<div class="gallery">
-			<figure>
-				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
-				<figcaption>Abajour Tahina</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
-				<figcaption>Appartement Paris V</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
-				<figcaption>Restaurant Sushisen - Londres</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
-				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
-				<figcaption>Structures Thermopolis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
-				<figcaption>Appartement Paris X</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
-				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
-				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
-				<figcaption>Appartement Paris XVIII</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
-				<figcaption>Bar “Lullaby” - Paris</figcaption>
-			</figure>
-			<figure>
-				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
-				<figcaption>Hotel First Arte - New Delhi</figcaption>
-			</figure>
+			
 		</div>
 	</section>
 	<section id="contact">
@@ -105,5 +136,6 @@
 		</ul>
 	</nav>
 </footer>
+<script src="../Backend/main.js"></script>
 </body>
 </html>

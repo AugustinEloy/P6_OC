@@ -185,4 +185,307 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+/*##################################### Filtres#########################*/
 
+button{
+	color: #1D6154;
+	background:transparent;
+	width: 15%;
+	height: 37px;
+	border-radius: 20px;
+	border: 2px solid #1D6154;
+	margin-left: 2%;
+
+}
+#her:hover{
+	background-color: #1D6154;
+	color: white;
+}
+#objet:hover{
+	background-color: #1D6154;
+	color: white;
+}
+#appartements:hover{
+	background-color: #1D6154;
+	color: white;
+}
+#tous:hover{
+	background-color: #1D6154;
+	color: white;
+}
+#filtres{
+	display: flex;
+	justify-content: center;
+	padding: 3%;	
+}
+/*####################################login page########################*/
+#log{
+	display: flex;
+	justify-content: center;
+}
+
+#login_text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+#login_text label {
+    font-size: 10px;
+    text-align: left;
+    margin-bottom: 5px; 
+	margin-top: 30px;
+}
+
+#login_text input {
+    width: 379px;
+	height: 51px;
+    border: none;
+	box-shadow: 5px 5px 5px 5px #00000017;
+	
+}
+#buttonl{
+	margin-top: 30px;
+}
+
+#blog{
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
+	text-align: center;
+	border-radius: 60px ;
+}
+ /*###################################################  Modal photo2   ##################################*/	
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */	
+	
+  }
+  
+  .modal-content {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 60%;
+	height: 670px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  #adimg{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 75%;
+	height: 169px;
+	background-color: #E8F1F6;
+	border-radius: 3px;
+  } 
+  #uploadBtn{
+	color: #1D6154;
+	background:transparent;
+	width: 60%;
+	height: 37px;
+	border-radius: 20px;
+	border: 2px solid #CBD6DC;
+	margin-left: 2%;
+	background-color: #CBD6DC;
+	display: block;
+	text-align: center;
+	padding: auto;
+  }
+  .modal-body{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+	width: 100%;
+	margin-top: 30px;
+  }
+  .modal-body label{
+	width:75%;
+	margin-bottom: 10px;
+  }
+
+  .modal-body input{
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	width: 75%;
+	height: 51px;
+  }
+  .modal-header {
+	width: 100%;
+	padding: 2px 16px;
+	color: white;
+  } 
+  .close {
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 5%;
+	margin-top: 3%;
+	color: black;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  
+	.modal-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	margin-top: 30px;
+	background-color: white;
+	color: white;
+  }
+  .modal-footer select{
+	width: 75%;
+	height: 51px;
+  }
+ 
+
+ 
+  #submitadd{
+	background-color: grey;
+	color: white;
+	margin-top: 20px;
+	height: 36px;
+	width: 237px;
+	border-radius: 60px;
+  }
+  /*###################################################  Modal photo1  ##################################*/
+  .header-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+   
+
+  .modal1 {
+    display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 100px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */	
+	
+   
+  }
+
+
+  .modal-center {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 20px;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.modal-center figure {
+    position: relative;
+    margin: 0; 
+}
+
+.modal-center img {
+    width: 78px;
+    height: 103px;
+    margin: 0; 
+	padding-left: 25px;
+}
+
+.modal-center i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: white;
+}
+
+  /* Modal Content */
+  .modal-c {
+  	display: flex;
+  	flex-direction: column;
+ 	align-items: center;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 60%;
+	height: 670px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    
+  }
+  
+  /* The Close Button */
+  .close2 {
+    display: flex;
+	justify-content: flex-end;
+	margin-right: 5%;
+	margin-top: 3%;
+	color: black;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close2:hover,
+  .close2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-h {
+    width: 100%;
+	padding: 2px 16px;
+	
+  }
+  #modalb{
+	border: none;
+	color: black;
+  }
+  
+  .modal-f {
+    width: 100%;
+   color: white;
+  }
+  
+#submitdel{
+        background-color: #1D6154;
+        color: white;
+        margin-top: 20px;
+        height: 36px;
+        width: 237px;
+        border-radius: 60px;    
+}

@@ -1,4 +1,3 @@
-
 let app = document.getElementById ("appartements")
 let Hr = document.getElementById ("her")
 let tous = document.getElementById ("tous")
@@ -16,21 +15,41 @@ let submitdel = document.getElementById('submitdel')
 let mymodal = document.getElementById('mymodal')
 let span2 = document.getElementsByClassName('close2')[0];
 const buttonadd = document.getElementById('submitadd')
-let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwODQzNjM3MiwiZXhwIjoxNzA4NTIyNzcyfQ.yfPpT7NHIaink7ggXxRwkkXhl4xtFiHoEywydvmOpBw"
 let projectsData;
 
-
+/*##########################################token ##########################################################*/
+let token = localStorage.getItem('token');
 
 
 /*##########################################filtres ##########################################################*/
+fetch('http://localhost:5678/api/categories')
+  .then(response => response.json())
+  .then(categories => {
+    document.getElementById('tous').addEventListener('click', () => displayProjects(projectsData)); 
+    document.getElementById('appartements').addEventListener('click', () => filtresParCategorie(categories, 2));
+    document.getElementById('objet').addEventListener('click', () => filtresParCategorie(categories, 1));
+    document.getElementById('her').addEventListener('click', () => filtresParCategorie(categories, 3));
+  })
+  .catch(error => {
+    console.error("Erreur sur lid :", error);
+  });
+
+function filtresParCategorie(categories, categoryId) {
+
+  const projectsFilteredByCategory = projectsData.filter(project => {
+    const category = categories.find(cat => cat.id === categoryId);
+    return project.categoryId === category.id;
+  });
+
+  displayProjects(projectsFilteredByCategory);
+}
+
+
 fetch("http://localhost:5678/api/works")
 .then(response => response.json())
 .then(data => {
 projectsData = data;
-    document.getElementById('tous').addEventListener('click', () => displayProjects(projectsData)); 
-    document.getElementById('appartements').addEventListener('click', () => filtresAppartements(projectsData));
-    document.getElementById('objet').addEventListener('click', () => filtreObjets(projectsData));
-    document.getElementById('her').addEventListener('click', () => filtreHotelsRestaurants(projectsData));
+    
     displayProjects(projectsData);
     const modalBody = document.querySelector('.modal-center');
 
@@ -53,26 +72,6 @@ projectsData = data;
     });
   });
     });
-
-
-  
-
-
-function filtresAppartements(projectsData) {
-    const appartementProjects = projectsData.filter(project => project.categoryId === 2);
-    displayProjects(appartementProjects);
-}
-
-function filtreObjets(projectsData) {
-    const objetProjects = projectsData.filter(project => project.categoryId === 1);
-    displayProjects(objetProjects);
-}
-
-function filtreHotelsRestaurants(projectsData) {
-    const hrProjects = projectsData.filter(project => project.categoryId === 3);
-    displayProjects(hrProjects);
-}
-
 function displayProjects(projects) {
     const gallery = document.querySelector('.gallery');
     gallery.innerHTML = ''; 
@@ -95,35 +94,21 @@ function displayProjects(projects) {
 
 //######################################################################## MODAL  ########################################################################
 
+modalb.addEventListener('click', function(){
+  modala.style.display = 'block'
+})
+span.addEventListener('click' , function(){
+  modala.style.display = "none"
+})
 
-
-modalb.onclick = function() {
-  modala.style.display = "block";
-}
-
-
-span.onclick = function() {
-  modala.style.display = "none";
-}
-
-
-window.onclick = function(event) {
-  if (event.target === modala) {
-    modala.style.display = "none";
-  }
-}
-submitdel.onclick = function(){
+submitdel.addEventListener('click', function(){
   mymodal.style.display = "block";
   modala.style.display = "none";
-}
-span2.onclick = function() {
+})
+span2.addEventListener('click', function(){
   mymodal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target === mymodal) {
-    mymodal.style.display = "none";
-  }
-}
+})
+
 uploadBtn.addEventListener('click', function() {
     imageInput.click(); 
   })
@@ -158,8 +143,6 @@ buttonadd.addEventListener('click', ajoutprojet);
     return;
   }
 
-  const lastId = projectsData[projectsData.length - 1].id;
-  const newId = lastId + 1;
   const image = document.querySelector(".inputimage").files[0]
   const titre = document.querySelector(".titleimput").value;
   const categoryId = document.querySelector(".cateselect").value;
@@ -173,10 +156,10 @@ buttonadd.addEventListener('click', ajoutprojet);
   }
 
   const formData = new FormData();
-  formData.append('id', newId); 
+  
   formData.append('title', titre);
   formData.append('image', image);
-  formData.append('categoryId', categoryId);
+  formData.append('category', categoryId);
   
   console.log(formData)
 

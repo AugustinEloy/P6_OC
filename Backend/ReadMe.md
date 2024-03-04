@@ -33,3 +33,5 @@ Pour lire la documentation, utiliser Chrome ou Firefox
   "userId": 1,
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwODQzNjM3MiwiZXhwIjoxNzA4NTIyNzcyfQ.yfPpT7NHIaink7ggXxRwkkXhl4xtFiHoEywydvmOpBw"
 }
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcwODY3OTY3MCwiZXhwIjoxNzA4NzY2MDcwfQ.-aXx6eYP9kiRCkvkBeCG2dfdF7exMDHgDUGkRqvXJDU"
+}

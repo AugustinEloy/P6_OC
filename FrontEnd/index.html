@@ -21,7 +21,7 @@
 			<li>projets</li>
 			<li>contact</li>
 			<a href="login.html">
-			<li>login</li>
+			<li id="logout">login</li>
 			</a>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
@@ -43,7 +43,7 @@
 		<div class="header-container">
 			<h2>Mes Projets</h2>
 			<!-- Trigger/Open The Modal -->
-			<button id="modalb">modifier</button>
+			<button id="modalb"> <i class="fa-regular fa-pen-to-square"></i> modifier</button>
 		</div>
 
 		<div id="modala" class="modal1">
@@ -74,8 +74,10 @@
 					</div>
 		
 					<div id="adimg">
+						<i class="fa-regular fa-image"></i>
 						<input type="file" id="imageInput" class="inputimage" style="display: none;" name="image">
 						<label id="uploadBtn" for="uploadBtn" class="upload-label" > + Ajout photo </label>
+						<p>jpg, png : 4mo max</p>
 					</div>
 		
 					<div class="modal-body">
@@ -136,6 +138,6 @@
 		</ul>
 	</nav>
 </footer>
-<script src="../Backend/main.js"></script>
+<script  src="../Backend/main.js"></script>
 </body>
 </html>

@@ -15,11 +15,19 @@ let submitdel = document.getElementById('submitdel')
 let mymodal = document.getElementById('mymodal')
 let span2 = document.getElementsByClassName('close2')[0];
 const buttonadd = document.getElementById('submitadd')
+let logout = document.getElementById('logout')
 let projectsData;
 
 /*##########################################token ##########################################################*/
 let token = localStorage.getItem('token');
 
+document.addEventListener('DOMContentLoaded', function() {
+  const connecte = localStorage.getItem('token') !== null;
+  const logoutButton = document.getElementById('logout');
+  if (connecte) {
+    logoutButton.innerText = "logout";
+  }
+});
 
 /*##########################################filtres ##########################################################*/
 fetch('http://localhost:5678/api/categories')
@@ -136,7 +144,7 @@ buttonadd.addEventListener('click', ajoutprojet);
  async function ajoutprojet (event){
   event.preventDefault();
 
-  console.log(projectsData)
+ 
 
   if(projectsData.length === 0){
     alert("Aucun projet n'a été trouvé")
@@ -161,7 +169,7 @@ buttonadd.addEventListener('click', ajoutprojet);
   formData.append('image', image);
   formData.append('category', categoryId);
   
-  console.log(formData)
+
 
   try {
     const response = await fetch('http://localhost:5678/api/works', {
@@ -175,6 +183,11 @@ buttonadd.addEventListener('click', ajoutprojet);
 
     if (response.ok) {
       alert("Projet ajouté avec succès");
+      fetch("http://localhost:5678/api/works")
+      .then(response => response.json())
+      .then(data => {
+      projectsData = data;
+      })
       displayProjects(projectsData);
     } else {
       alert("Quelque chose s'est mal passé lors de l'ajout du projet");
@@ -183,3 +196,5 @@ buttonadd.addEventListener('click', ajoutprojet);
     console.error("Erreur lors de l'envoi de la requête :", error);
   }
 };
+/*Lorsque l’on est connecté, il est possible d’ajouter un travail. Le travail s’ajoute à la galerie sans nécessité de recharger la page.
+*/

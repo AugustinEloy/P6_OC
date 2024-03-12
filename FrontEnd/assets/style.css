@@ -294,9 +294,11 @@ button{
 	color: #CBD6DC;
 	margin-bottom: 20px;
 	font-size: 76px;
+	z-index: 0;
   }
   #adimg p {
 	margin-top: 10px;
+	z-index: 0;
   }
   #adimg{
 	display: flex;
@@ -304,14 +306,15 @@ button{
     justify-content: center;
     align-items: center;
 	width: 75%;
-	height: 169px;
+	height: 175px;
 	background-color: #E8F1F6;
 	border-radius: 3px;
+	position: relative;
   } 
   #uploadBtn{
 	color: #1D6154;
 	background:transparent;
-	width: 60%;
+	width: 45%;
 	height: 37px;
 	border-radius: 20px;
 	border: 2px solid #CBD6DC;
@@ -321,6 +324,14 @@ button{
 	text-align: center;
 	padding: auto;
   }
+  #adimg img {
+	position: absolute; 
+    top: 0;
+    left: 28%; 
+	width: 47%;
+    height: 175px;
+    z-index: 1;
+}
   .modal-body{
 	display: flex;
     flex-direction: column;

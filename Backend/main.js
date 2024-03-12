@@ -63,6 +63,7 @@ projectsData = data;
 
     projectsData.forEach(project => {
       const figure = document.createElement('figure');
+      figure.setAttribute('data-id', project.id);
       const img = document.createElement('img');
       const deleteIcon = document.createElement('i'); 
   
@@ -86,6 +87,7 @@ function displayProjects(projects) {
 
     projects.forEach(project => {
         const figure = document.createElement('figure');
+        figure.setAttribute('data-id', project.id);
         const img = document.createElement('img');
         const figcaption = document.createElement('figcaption');
 
@@ -133,7 +135,20 @@ function deletePhoto(photoId) {
   })
   .then(response => {
       console.log('Image supprimée avec succès');
+
+      
+      if (response.ok) {
+        const elementToRemove = document.querySelector(`[data-id='${photoId}']`);
+        if (elementToRemove) {
+          elementToRemove.remove();
+        }
+      }
+
+      
+      projectsData = projectsData.filter(project => project.id !== photoId);
+      displayProjects(projectsData);
   })
+
   .catch(error => {
       console.error('Erreur lors de la suppression de l\'image :', error);
   });
@@ -181,20 +196,28 @@ buttonadd.addEventListener('click', ajoutprojet);
       body: formData
     });
 
+    const addedProjects = await response.json();
+
     if (response.ok) {
       alert("Projet ajouté avec succès");
-      fetch("http://localhost:5678/api/works")
-      .then(response => response.json())
-      .then(data => {
-      projectsData = data;
-      })
+      projectsData.push(addedProjects);
       displayProjects(projectsData);
-    } else {
+    }else{
       alert("Quelque chose s'est mal passé lors de l'ajout du projet");
     }
   } catch (error) {
     console.error("Erreur lors de l'envoi de la requête :", error);
   }
-};
-/*Lorsque l’on est connecté, il est possible d’ajouter un travail. Le travail s’ajoute à la galerie sans nécessité de recharger la page.
-*/
+ };
+ 
+
+imageInput.addEventListener('change', function(event) {
+    
+    if (imageInput.files && imageInput.files[0]) {
+       
+        const previewImage = document.createElement('img'); 
+        previewImage.src = URL.createObjectURL(imageInput.files[0]);
+        previewImage.alt = "Preview Image";
+        document.getElementById('adimg').appendChild(previewImage);
+    }
+});
